@@ -41,15 +41,13 @@ Attach DLLs from AppScan install folder:
 	a) Open “BurpTrafficImporter.sln” with Visual Studio or other IDE of your choice.  
 	b) Locate and right-click on BurpTrafficImporter project.  
 	c) Click Add > Reference  
-	d) In the Browse section, select Browse and add the following 4 DLLs from the AppScan folder:     
-	- AppScanSDK.dll  
-	- EngineAPI.dll  
-	- HttpProxy.dll
-	- CommonEngineProvider.dll
-	- UserControls.dll
-	- ScanTypes.dll
-	- LocalizationUtils.dll
-	- InfraTypes.dll
-
-
+	d) In the Browse section, select Browse and add the following 4 DLLs from the AppScan folder:  
+		- AppScanSDK.dll  
+		- EngineAPI.dll  
+		- HttpProxy.dll  
+		- CommonEngineProvider.dll  
+		- UserControls.dll  
+		- ScanTypes.dll  
+		- LocalizationUtils.dll  
+		- InfraTypes.dll  
 The file `BurpTrafficImporterExt.zip` is automatically generated in the sub folder: \appscan-standard-BurpTrafficImporter\output 
