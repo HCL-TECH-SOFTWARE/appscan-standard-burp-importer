@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurpTrafficImporter", "BurpTrafficImporter.csproj", "{7C28C093-17B9-4E84-9120-75E4F5432BF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C28C093-17B9-4E84-9120-75E4F5432BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C28C093-17B9-4E84-9120-75E4F5432BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C28C093-17B9-4E84-9120-75E4F5432BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C28C093-17B9-4E84-9120-75E4F5432BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {956B0012-4926-44F3-A5C9-C7BB3C61E541}
+	EndGlobalSection
+EndGlobal

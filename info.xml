@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<AppScanExtension>
+  <!-- Front End MetaData -->
+  <FullName>Burp Traffic Importer</FullName>
+  <Description>Burp Traffic Importer AppScan, converting Burp recording in AppScan Manual Explore</Description>
+  <Version>2.0</Version>
+  <Author>HCL Technologies Ltd.</Author>
+  <Copyright>© Copyright HCL Technologies Limited 2000, 2023. All rights reserved.</Copyright>
+  <IconFile>AppScan.ico</IconFile>
+  <MainDllFile>BurpTrafficImporter.exe</MainDllFile>
+  <!-- Target Application this extension can install into, 
+       with minimum supported versions. -->
+  <TargetEdition>
+    <!-- supported values: AppScanAuditors, AppScanDev, AppScanQA, AppScanXM, All -->
+    <ID>All</ID>
+    <MinCompatibleVersion>10.0.0</MinCompatibleVersion>
+  </TargetEdition>
+</AppScanExtension>

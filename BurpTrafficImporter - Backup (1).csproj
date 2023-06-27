@@ -1,0 +1,138 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{7C28C093-17B9-4E84-9120-75E4F5432BF3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyTitle>BurpTrafficImporter</AssemblyTitle>
+    <Company>HCLTech</Company>
+    <Product>BurpTrafficImporter</Product>
+    <Copyright>Copyright © HCL 2023</Copyright>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <OutputPath>output\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <OutputPath>..\..\..\dist\$(Configuration)\bin\Extensions\BurpTrafficImporter\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+rmdir /S /Q "BurpTrafficImporter"
+md "BurpTrafficImporter"
+
+echo copying info.xml and extension
+copy "$(TargetDir)\info.xml" "$(TargetDir)\$(TargetName)\"
+copy "$(TargetPath)" "$(TargetDir)\$(TargetName)\"
+
+echo Doing signer stuff
+$(TargetDir)..\ExtensionSigner\ExtensionSigner.exe -s $(TargetDir)\$(TargetName)
+copy "$(TargetDir)\$(TargetName)\info.xml" "$(TargetDir)\"
+
+echo Ziipping (deleting then zipping)
+del "$(TargetDir)\$(TargetName).zip"
+
+ echo "Note: to build this project, you need to have 7-zip installed (http://www.7-zip.org/)"
+"C:\Program Files\7-Zip\7z.exe" a -tzip "$(TargetDir)\$(TargetName).zip" -r "$(TargetDir)\$(TargetName)"
+
+
+rem rmdir /S /Q  "C:\Documents and Settings\All Users\Application Data\IBM\AppScan Standard\Extensions\$(TargetName)"
+rem md "C:\Documents and Settings\All Users\Application Data\IBM\AppScan Standard\Extensions\$(TargetName)"
+rem xcopy "$(TargetDir)\Z_$(TargetName)" "C:\Documents and Settings\All Users\Application Data\IBM\AppScan Standard\Extensions\$(TargetName)" /D /S /E /Y
+</PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="6.0.0" />
+    <PackageReference Include="Open.Collections" Version="3.1.2" />
+    <PackageReference Include="Open.Disposable" Version="2.6.0" />
+    <PackageReference Include="Open.Disposable.ObjectPools" Version="2.9.0" />
+    <PackageReference Include="Open.Text" Version="6.2.1" />
+    <PackageReference Include="Open.Threading" Version="2.2.1" />
+    <PackageReference Include="Open.Threading.ReadWrite" Version="2.0.2" />
+    <PackageReference Include="Open.Threading.ReadWriteHelper" Version="2.1.0" />
+    <PackageReference Include="Open.Threading.Tasks" Version="1.2.2" />
+    <PackageReference Include="System.Buffers" Version="4.5.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageReference Include="System.Threading.Channels" Version="6.0.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AppScanSDK">
+      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\AppScanSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonEngineProvider">
+      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\CommonEngineProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EngineAPI">
+      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\EngineAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="HttpProxy">
+      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\HttpProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="InfraTypes">
+      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\InfraTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="LocalizationUtils">
+      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\LocalizationUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Open.Collections, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\dist\Debug\bin\Open.Collections.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Open.Disposable, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\dist\Debug\bin\Open.Disposable.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Open.Disposable.ObjectPools, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\dist\Debug\bin\Open.Disposable.ObjectPools.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Open.Threading, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\dist\Debug\bin\Open.Threading.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Open.Threading.ReadWrite, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\dist\Debug\bin\Open.Threading.ReadWrite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Open.Threading.Tasks, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\dist\Debug\bin\Open.Threading.Tasks.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ScanTypes">
+      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\ScanTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="UserControls">
+      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\UserControls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="BurpImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BurpImportForm.Designer.cs">
+      <DependentUpon>BurpImportForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="BurpImportForm.resx">
+      <DependentUpon>BurpImportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppScan.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="info.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
