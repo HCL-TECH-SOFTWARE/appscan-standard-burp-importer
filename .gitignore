@@ -1,0 +1,67 @@
+# Compiled files
+bin/
+obj/
+output/
+
+# Visual Studio files
+*.suo
+*.user
+*.userprefs
+*.vs/
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.sdf
+*.opensdf
+*.sln.docstates
+
+# ReSharper files
+_ReSharper*/
+*.ReSharper*
+
+# NuGet packages
+packages/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+*.dll
+*.exe
+
+# Visual Studio code coverage
+*.coverage
+*.coveragexml
+
+# Test Results
+[Test]Results*/
+[Tt]est[Rr]esult*/
+*.testsettings
+
+# Build tooling
+msbuild.log
+msbuild.err
+
+# ClickOnce deployment
+publish/
+*.publish.xml
+
+# Windows Azure Build Output
+csx/
+*.build.csdef
+
+# Windows Store app package directory
+AppPackages/
+
+# Others
+*~
+*~
+*.log
+*.bak
+*.cache
+*.tmp
+*.tmp_proj
+*.pidb
+*.userprefs
