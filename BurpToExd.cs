@@ -179,8 +179,7 @@ namespace BurpTrafficImporter
             string contentTypeHeader = responseInfo.ContentType;
             byte[] responseBinary = new byte[responseInfo.BodyLength];
             Array.Copy(response.GetBuffer(), responseInfo.BodyIndex, responseBinary, 0, responseInfo.BodyLength);
-            Encoding responseEnc;
-            DetectEncoding(responseBinary, contentTypeHeader, out responseEnc);
+            Encoding responseEnc= Encoding.UTF8;
 
             //Construct response header
             if (responseInfo.Headers.ContainsKey(HeaderList.TransferEncodingHeaderName) && responseInfo.Headers[HeaderList.TransferEncodingHeaderName].Contains("chunked"))
@@ -225,26 +224,6 @@ namespace BurpTrafficImporter
                 builder.Scheme = "https";
 
             return builder.Uri;
-        }
-
-        private void DetectEncoding(byte[] rawContent, string contentTypeHeader, out Encoding encoding)
-        {
-            String fileContent = "";
-            encoding = Encoding.UTF8;
-
-            try
-            {
-                encoding = EncodingDetector.EncodeToUnicode(rawContent, contentTypeHeader, _charsetOverride, _htmlEncodingOverride, out fileContent);
-                if (encoding == null) // conversion failed
-                {
-                    encoding = Encoding.UTF8;
-                    throw new Exception("Convert using default UTF8 encoding");
-                }
-            }
-            catch
-            {
-                //
-            }
         }
 
         class TrafficResponseInfo
