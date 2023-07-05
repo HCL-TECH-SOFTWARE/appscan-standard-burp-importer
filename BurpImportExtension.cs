@@ -70,7 +70,7 @@ namespace BurpTrafficImporter
                             _appScan.Scan.ScanData.Config.AdditionalServers.Add(domain);
                         }
 
-                        BurpToExd b2e = new BurpToExd("UTF8", null);
+                        BurpToExd b2e = new BurpToExd();
                         exdFile = Path.GetFileNameWithoutExtension(_bif.BurpTrafficFile);
                         exdFile += ".converted.exd";
                         exdFile = Path.Combine(_appScan.AppScanTempDir, exdFile);

@@ -19,13 +19,9 @@ namespace BurpTrafficImporter
     class BurpToExd
     {
         private ExdWriter _exdWriter;
-        private readonly string _charsetOverride;
-        private readonly string _htmlEncodingOverride;
 
-        public BurpToExd(string charsetOverride, string htmlEncodingOverride)
+        public BurpToExd()
         {
-            _charsetOverride = charsetOverride;
-            _htmlEncodingOverride = htmlEncodingOverride;
         }
         public void Convert(string sourceFile, string targetFile)
         {
