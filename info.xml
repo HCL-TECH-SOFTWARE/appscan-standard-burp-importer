@@ -7,7 +7,7 @@
   <Author>HCL Technologies Ltd.</Author>
   <Copyright>© Copyright HCL Technologies Limited 2000, 2023. All rights reserved.</Copyright>
   <IconFile>AppScan.ico</IconFile>
-  <MainDllFile>BurpTrafficImporter.exe</MainDllFile>
+  <MainDllFile>BurpTrafficImporter.dll</MainDllFile>
   <!-- Target Application this extension can install into, 
        with minimum supported versions. -->
   <TargetEdition>

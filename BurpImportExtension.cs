@@ -9,11 +9,10 @@ using System.Threading;
 using System.Windows.Forms;
 using AppScan;
 using AppScan.Extensions;
-using AppScan.Extensions.Events;
 
 namespace BurpTrafficImporter
 {
-    class BurpImportExtension : IExtensionLogic, IExtensionSDKLogic, IExtensionControl
+    class BurpImportExtension : IExtensionLogic, IExtensionSDKLogic
     {
         private Form mainForm;
 
@@ -22,13 +21,9 @@ namespace BurpTrafficImporter
 
         private IAppScan _appScan;
 
-        public event EventHandler<ExtensionControlEventArgs> ExtensionActivationStarting;
-        public event EventHandler<ExtensionControlEventArgs> ExtensionActivationEnding;
-        public event EventHandler<ExtensionControlProgressEventArgs> ExtensionActivationProgress;
-        public event EventHandler<ExtensionsActivationErrorEventArgs> ExtensionActivationError;
-
         public void Load(IAppScan appScan, IAppScanGui appScanGui, string extensionDir)
         {
+            System.Diagnostics.Debugger.Launch();
             appScanGui.ExtensionsMenu.Add(new MenuItem<EventArgs>("Import Burp Traffic",ImportBurpTraffic));
             appScanGui.MainFormStarted += AppScanGuiOnMainFormStarted;
             _uiContext = SynchronizationContext.Current;

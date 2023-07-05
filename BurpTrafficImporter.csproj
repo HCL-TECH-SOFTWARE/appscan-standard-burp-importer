@@ -26,8 +26,7 @@ md "BurpTrafficImporterExt"
 
 echo copying info.xml and extension
 copy "info.xml" "BurpTrafficImporterExt"
-copy "BurpTrafficImporter.exe" "BurpTrafficImporterExt"
-
+copy "BurpTrafficImporter.dll" "BurpTrafficImporterExt"
 copy "BurpTrafficImporterExt\info.xml" ""
 
 echo Ziipping (deleting then zipping)
