@@ -47,6 +47,5 @@ Attach DLLs from AppScan install folder:
 		- CommonEngineProvider.dll  
 		- UserControls.dll  
 		- ScanTypes.dll  
-		- LocalizationUtils.dll  
 		- InfraTypes.dll  
 The file `BurpTrafficImporterExt.zip` is automatically generated in the sub folder: \appscan-standard-BurpTrafficImporter\output 
