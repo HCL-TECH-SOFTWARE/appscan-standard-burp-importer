@@ -63,9 +63,6 @@ del "BurpTrafficImporterExt.zip"
     <Reference Include="CommonEngineProvider">
       <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\CommonEngineProvider.dll</HintPath>
     </Reference>
-    <Reference Include="EngineAPI">
-      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\EngineAPI.dll</HintPath>
-    </Reference>
     <Reference Include="HttpProxy">
       <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\HttpProxy.dll</HintPath>
     </Reference>

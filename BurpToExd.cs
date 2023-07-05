@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using LocalizationUtils;
-using Watchfire.EngineAPI;
 using Watchfire.HttpProxy;
 using Watchfire.InfraTypes;
 using Watchfire.ScanTypes;
@@ -28,9 +27,6 @@ namespace BurpTrafficImporter
         {
             _charsetOverride = charsetOverride;
             _htmlEncodingOverride = htmlEncodingOverride;
-
-            EngineRegistries.RegisterService(typeof(IEngineOptions),new DefaultEngineOptions());
-
         }
         public void Convert(string sourceFile, string targetFile)
         {

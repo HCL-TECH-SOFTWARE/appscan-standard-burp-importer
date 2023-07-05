@@ -32,7 +32,7 @@ namespace BurpTrafficImporter
             appScanGui.ExtensionsMenu.Add(new MenuItem<EventArgs>("Import Burp Traffic",ImportBurpTraffic));
             appScanGui.MainFormStarted += AppScanGuiOnMainFormStarted;
             _uiContext = SynchronizationContext.Current;
-            _bif = new BurpImportForm(mainForm);
+            _bif = new BurpImportForm(mainForm, appScan);
             _appScan = appScan;
         }
 
@@ -43,7 +43,7 @@ namespace BurpTrafficImporter
 
         private void ImportBurpTraffic(EventArgs args)
         {
-            _bif = new BurpImportForm(mainForm);
+            _bif = new BurpImportForm(mainForm, _appScan);
             _bif.FormClosed += BifOnFormClosed;
             _uiContext.Send(delegate
             {

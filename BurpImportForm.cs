@@ -3,13 +3,13 @@
 * (c) Copyright HCL Technologies Ltd. 2015, 2017.
 * Note to U.S. Government Users Restricted Rights.
 ******************************************************************/
+using AppScan;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
-using Watchfire.EngineAPI;
 
 namespace BurpTrafficImporter
 {
@@ -18,14 +18,16 @@ namespace BurpTrafficImporter
         private readonly IWin32Window _owner;
         private readonly string _useFirstText;
         private string _startingPointUrl;
+        private IAppScan _appScan;
 
-        public BurpImportForm(Form owner)
+        public BurpImportForm(Form owner, IAppScan appScan)
         {
             Owner = owner;
             StartPosition = FormStartPosition.CenterParent;
             InitializeComponent();
             _owner = owner;
             _useFirstText = checkBoxUseFirstAsSTP.LabelControl.Text;
+            _appScan = appScan;
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -66,7 +68,7 @@ namespace BurpTrafficImporter
                 try
                 {
                     string line;
-                    string path = EngineRegistries.EngineOptions.AppScanTempDir;
+                    string path = _appScan.AppScanTempDir;
                     string id = System.Diagnostics.Process.GetCurrentProcess().Id.ToString();
                     if (!path.Contains(id))
                     {
