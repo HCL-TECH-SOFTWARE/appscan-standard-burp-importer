@@ -8,7 +8,6 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
-using LocalizationUtils;
 using Watchfire.HttpProxy;
 using Watchfire.InfraTypes;
 using Watchfire.ScanTypes;

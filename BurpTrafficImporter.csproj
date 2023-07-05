@@ -69,9 +69,6 @@ del "BurpTrafficImporterExt.zip"
     <Reference Include="InfraTypes">
       <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\InfraTypes.dll</HintPath>
     </Reference>
-    <Reference Include="LocalizationUtils">
-      <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\LocalizationUtils.dll</HintPath>
-    </Reference>
     <Reference Include="Open.Collections">
 	    <SpecificVersion>False</SpecificVersion>
 	    <HintPath>..\..\..\dist\Debug\bin\Open.Collections.dll</HintPath>
