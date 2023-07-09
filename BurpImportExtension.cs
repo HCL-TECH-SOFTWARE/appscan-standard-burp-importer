@@ -23,7 +23,6 @@ namespace BurpTrafficImporter
 
         public void Load(IAppScan appScan, IAppScanGui appScanGui, string extensionDir)
         {
-            System.Diagnostics.Debugger.Launch();
             appScanGui.ExtensionsMenu.Add(new MenuItem<EventArgs>("Import Burp Traffic",ImportBurpTraffic));
             appScanGui.MainFormStarted += AppScanGuiOnMainFormStarted;
             _uiContext = SynchronizationContext.Current;
