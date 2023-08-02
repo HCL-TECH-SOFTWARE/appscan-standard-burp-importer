@@ -49,3 +49,7 @@ Attach DLLs from AppScan install folder:
 		- ScanTypes.dll  
 		- InfraTypes.dll  
 The file `BurpTrafficImporterExt.zip` is automatically generated in the sub folder: \appscan-standard-BurpTrafficImporter\output 
+
+Tip: If you get error MSB3821:
+a) Right-click on the ZIP file or cloned file "BurpImportForm.resx".
+b) In the general tab, select Unblock and click OK.
