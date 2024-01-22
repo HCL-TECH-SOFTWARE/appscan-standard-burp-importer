@@ -59,80 +59,94 @@ namespace BurpTrafficImporter
             HandleNewFile(textBoxSourceFilePath.Text);
         }
 
+        // Name of the currently selected traffic file name.  NB. _burpTrafficFile returns the burp.tmp filename used instead.
+        private string _originalBurpTrafficFileName = string.Empty;
+
         private void HandleNewFile(string filePath)
         {
-            if (File.Exists(filePath) && _burpTrafficFile == "")
+            if (File.Exists(filePath))
             {
-                XmlDocument xmlDoc = new XmlDocument();
-
-                try
+                if (filePath != _originalBurpTrafficFileName)
                 {
-                    string line;
-                    string path = _appScan.AppScanTempDir;
-                    string id = System.Diagnostics.Process.GetCurrentProcess().Id.ToString();
-                    if (!path.Contains(id))
-                    {
-                        path = Path.Combine(path, id);
-                    }
-                    path = Path.Combine(path, "burp.tmp");
-
-
-                    using (StreamReader reader = new StreamReader(filePath))
-                    {
-                        using (StreamWriter writer = new StreamWriter(path))
-                        {
-                            while ((line = reader.ReadLine()) != null)
-                            {
-                                if (line.Contains("?xml version=\"1.1\""))
-                                {
-                                    line = line.Replace("?xml version=\"1.1\"", "?xml version=\"1.0\"");
-                                }
-                                writer.WriteLine(line);
-                            }
-                        }
-                    }
-
-                    _burpTrafficFile = path;
-
-                    xmlDoc.Load(_burpTrafficFile);
-
-                    XmlNode firstUrl = xmlDoc.SelectSingleNode("items/item/url");
-                    if (firstUrl != null)
-                    {
-                        _startingPointUrl = firstUrl.InnerText;
-                        checkBoxUseFirstAsSTP.LabelControl.Text = _useFirstText + " - " + _startingPointUrl;
-                        checkBoxUseFirstAsSTP.LabelControl.Refresh();
-                    }
-
-                    XmlNodeList hosts = xmlDoc.SelectNodes("items/item/host");
-                    if (hosts != null)
-                    {
-                        string first = hosts[0].InnerText;
-                        for (int i = 1; i < hosts.Count; i++)
-                        {
-                            if (hosts[i].InnerText != first)
-                            {
-                                checkedListBoxAdditionalDomains.Items.Add(hosts[i].InnerText);
-                            }
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message, "Error");
+                    XmlDocument xmlDoc = new XmlDocument();
                     
-                    BurpTrafficFile = "";
-                    textBoxSourceFilePath.Text = "";
                     checkBoxUseFirstAsSTP.LabelControl.Text = _useFirstText;
                     checkedListBoxAdditionalDomains.Items.Clear();
+
+                    _burpTrafficFile = string.Empty;
+                    _originalBurpTrafficFileName = filePath;
+                    try
+                    {
+                        string line;
+                        string path = _appScan.AppScanTempDir;
+                        string id = System.Diagnostics.Process.GetCurrentProcess().Id.ToString();
+                        if (!path.Contains(id))
+                        {
+                            path = Path.Combine(path, id);
+                        }
+                        path = Path.Combine(path, "burp.tmp");
+
+
+                        using (StreamReader reader = new StreamReader(filePath))
+                        {
+                            using (StreamWriter writer = new StreamWriter(path))
+                            {
+                                while ((line = reader.ReadLine()) != null)
+                                {
+                                    if (line.Contains("?xml version=\"1.1\""))
+                                    {
+                                        line = line.Replace("?xml version=\"1.1\"", "?xml version=\"1.0\"");
+
+                                    }
+                                    writer.WriteLine(line);
+                                }
+                            }
+                        }
+
+                        _burpTrafficFile = path;
+
+                        xmlDoc.Load(_burpTrafficFile);
+
+                        XmlNode firstUrl = xmlDoc.SelectSingleNode("items/item/url");
+                        if (firstUrl != null)
+                        {
+                            _startingPointUrl = firstUrl.InnerText;
+                            checkBoxUseFirstAsSTP.LabelControl.Text = _useFirstText + " - " + _startingPointUrl;
+                            checkBoxUseFirstAsSTP.LabelControl.Refresh();
+                        }
+
+                        XmlNodeList hosts = xmlDoc.SelectNodes("items/item/host");
+                        if (hosts != null)
+                        {
+                            string first = hosts[0].InnerText;
+                            for (int i = 1; i < hosts.Count; i++)
+                            {
+                                if (hosts[i].InnerText != first)
+                                {
+                                    checkedListBoxAdditionalDomains.Items.Add(hosts[i].InnerText);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message, "Error");
+
+                        BurpTrafficFile = string.Empty;
+                        textBoxSourceFilePath.Text = string.Empty;
+                        checkBoxUseFirstAsSTP.LabelControl.Text = _useFirstText;
+                        checkedListBoxAdditionalDomains.Items.Clear();
+                    }
                 }
             }
             else
             {
                 checkBoxUseFirstAsSTP.LabelControl.Text = _useFirstText;
                 checkedListBoxAdditionalDomains.Items.Clear();
-            }
 
+                _burpTrafficFile = string.Empty;
+                _originalBurpTrafficFileName = string.Empty;
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -144,7 +158,7 @@ namespace BurpTrafficImporter
         private void buttonImport_Click(object sender, EventArgs e)
         {
             ShouldImport = true;
-            if (_burpTrafficFile != "")
+            if (_burpTrafficFile != string.Empty)
             {
                 Close(); 
             }  
@@ -152,14 +166,14 @@ namespace BurpTrafficImporter
 
         public bool ShouldImport { get; private set; }
 
-        private string _burpTrafficFile = "";
+        private string _burpTrafficFile = string.Empty;
         public string BurpTrafficFile
         {
-            get { return _burpTrafficFile == "" ? textBoxSourceFilePath.Text : _burpTrafficFile; }
+            get { return _burpTrafficFile == string.Empty ? textBoxSourceFilePath.Text : _burpTrafficFile; }
             set { _burpTrafficFile = value; }
         }
 
-
+        
         public bool SetStartingPointUrl { get { return checkBoxUseFirstAsSTP.CheckBoxControl.Checked; } }
         public string StartingPointUrl { get { return _startingPointUrl; } }
 

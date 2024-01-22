@@ -50,7 +50,7 @@ namespace BurpTrafficImporter
         {
             if (_bif.ShouldImport)
             {
-                string exdFile = "";
+                string exdFile = string.Empty;
                 try
                 {
                     _uiContext.Send(delegate
@@ -100,7 +100,7 @@ namespace BurpTrafficImporter
                 File.Delete(_bif.BurpTrafficFile);
             }
 
-            _bif.BurpTrafficFile = "";
+            _bif.BurpTrafficFile = string.Empty;
         }
 
         public ExtensionVersionInfo GetUpdateData(Edition edition, Version targetAppVersion)
