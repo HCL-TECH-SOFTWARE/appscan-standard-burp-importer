@@ -70,27 +70,27 @@ del "BurpTrafficImporterExt.zip"
     </Reference>
     <Reference Include="Open.Collections">
 	    <SpecificVersion>False</SpecificVersion>
-	    <HintPath>..\..\..\dist\Debug\bin\Open.Collections.dll</HintPath>
+	    <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\Open.Collections.dll</HintPath>
     </Reference>
 	  <Reference Include="Open.Disposable, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
 		  <SpecificVersion>True</SpecificVersion>
-		  <HintPath>..\..\..\dist\Debug\bin\Open.Disposable.dll</HintPath>
+		  <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\Open.Disposable.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Open.Disposable.ObjectPools, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
 		  <SpecificVersion>True</SpecificVersion>
-		  <HintPath>..\..\..\dist\Debug\bin\Open.Disposable.ObjectPools.dll</HintPath>
+		  <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\Open.Disposable.ObjectPools.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Open.Threading, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
 		  <SpecificVersion>True</SpecificVersion>
-		  <HintPath>..\..\..\dist\Debug\bin\Open.Threading.dll</HintPath>
+		  <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\Open.Threading.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Open.Threading.ReadWrite, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
 		  <SpecificVersion>True</SpecificVersion>
-		  <HintPath>..\..\..\dist\Debug\bin\Open.Threading.ReadWrite.dll</HintPath>
+		  <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\Open.Threading.ReadWrite.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Open.Threading.Tasks, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
 		  <SpecificVersion>True</SpecificVersion>
-		  <HintPath>..\..\..\dist\Debug\bin\Open.Threading.Tasks.dll</HintPath>
+		  <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\Open.Threading.Tasks.dll</HintPath>
 	  </Reference>
     <Reference Include="ScanTypes">
       <HintPath>..\..\..\..\Program Files (x86)\HCL\AppScan Standard\ScanTypes.dll</HintPath>

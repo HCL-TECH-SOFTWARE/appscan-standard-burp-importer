@@ -103,6 +103,7 @@ namespace BurpTrafficImporter
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkedListBoxAdditionalDomains.FormattingEnabled = true;
+            this.checkedListBoxAdditionalDomains.CheckOnClick = true;
             this.checkedListBoxAdditionalDomains.Location = new System.Drawing.Point(13, 87);
             this.checkedListBoxAdditionalDomains.Name = "checkedListBoxAdditionalDomains";
             this.checkedListBoxAdditionalDomains.Size = new System.Drawing.Size(398, 79);
