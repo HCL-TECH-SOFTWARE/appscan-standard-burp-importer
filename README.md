@@ -2,7 +2,7 @@
 
 This library is an extension for HCL AppScan Standard.
 
-It allows the user to import an XML-formatted Burp traffic file containing a list of requests into AppScan. AppScan will explore these requests as if they were explored manually.
+It allows the user to import an XML-formatted Burp traffic file (exported via the Save Item context menu) containing a list of requests into AppScan. AppScan will explore these requests as if they were explored manually.
 
 ## Installation
 
