@@ -123,7 +123,11 @@ namespace BurpTrafficImporter
                             {
                                 if (hosts[i].InnerText != first)
                                 {
-                                    checkedListBoxAdditionalDomains.Items.Add(hosts[i].InnerText);
+                                    // Check if already host is already present in list before adding.
+                                    if (!checkedListBoxAdditionalDomains.Items.Contains(hosts[i].InnerText))
+                                    {
+                                        checkedListBoxAdditionalDomains.Items.Add(hosts[i].InnerText);
+                                    }
                                 }
                             }
                         }
