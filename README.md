@@ -2,7 +2,7 @@
 
 This library is an extension for HCL AppScan Standard.
 
-It allows the user to import a Burp file containing a list of requests into AppScan. AppScan will explore these requests as if they were explored manually.
+It allows the user to import an XML-formatted Burp traffic file containing a list of requests into AppScan. AppScan will explore these requests as if they were explored manually.
 
 ## Installation
 
@@ -16,13 +16,13 @@ To install, the extension must be imported into AppScan Standard using the AppSc
 
 ## Usage
 
-Once installed, you can access the extension using Tools > Extensions > Import Burp Traffic
+Once installed in AppScan, you can access the extension using Tools > Extensions > Import Burp Traffic
 
 Configuration:
 
 - **Browse**:The file you want to import. Must be a Burp file with valid requests.
 - **Use first request as Starting Point URL**: If the file includes relative paths, add here the base URL for these paths.
-- **Select domains to add to Additional Domains**: 
+- **Select domains to add to Additional Domains**: If the file includes more than one host, it will list them here so that they can be selected to be included in the Configuration > Starting URLs & domains > Domains being tested list.
 
 After configuring the extension, click *Import* to convert the list of requests into a temporary EXD (EXplore Data) file and import it into AppScan. AppScan will then explore these requests automatically. You can then decide whether to continue with a Test stage or more manual exploring.
 
