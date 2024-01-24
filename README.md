@@ -22,6 +22,7 @@ Once installed in AppScan, the following steps outline the proper usage:
 3. *(Optional)* Un-check Use first request as Starting Point URL if you don't want the extension to set the **Configuration > Starting URL** during Import. *Note: If a Starting URL is not assigned, AppScan Standard will assign one during the import of the Manual Explore data regardless of this option.*
 4. *(Optional)* The **Select domains to add to Additional Domains** list will be populated with any additional domains found in the Burp file. Check any you want AppScan to test and the extension will add them to the **Configuration > Starting URLs & domains > Domains being tested** list.
 5. Click **Import**
+
 the extension will then read the Burp traffic file, convert it to a temporary EXD (EXplore Data) file and subsequently import it. AppScan will then explore these requests automatically. You can then decide whether to continue with a Test stage or more manual exploring.
 
 ## Building
