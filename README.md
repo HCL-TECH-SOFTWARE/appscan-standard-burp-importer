@@ -17,7 +17,7 @@ To install, the extension must be imported into AppScan Standard using the AppSc
 
 Once installed in AppScan, the following steps outline the proper usage:  
     1. Navigate to **Tools > Extensions > Import Burp Traffic**  
-    2. Click **Browse** and select an XML-formatted Burp traffic file (exported via the **Save Item(s)** context menu in Burp)  
+    2. Click **Browse** and select an XML-formatted Burp traffic file.  This is exported from Burp under the **Proxy > HTTP History** tab using the **Save Item(s)** right-click context menu.  
     3. *(Optional)* Un-check **Use first request as Starting Point URL** if you don't want the extension to set the **Configuration > Starting URL** during Import.  
     *Note: If a **Starting URL** is not assigned, AppScan Standard will assign one during Manual Explore import.*  
     4. *(Optional)* The **Select domains to add to Additional Domains** list will be populated with any additional domains found in the Burp file. Check any you want AppScan to test and the extension will add them to the **Configuration > Starting URLs & domains > Domains being tested** list.  
