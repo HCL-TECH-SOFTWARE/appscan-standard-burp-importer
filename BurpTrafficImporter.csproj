@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ProjectGuid>{7C28C093-17B9-4E84-9120-75E4F5432BF3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFrameworks>net472;net6.0-windows</TargetFrameworks>
     <AssemblyTitle>BurpTrafficImporter</AssemblyTitle>
     <Company>HCLTech</Company>
     <Product>BurpTrafficImporter</Product>
@@ -10,6 +10,8 @@
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <FileVersion>2.0.0.0</FileVersion>
     <PlatformTarget>x86</PlatformTarget>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -51,6 +53,7 @@ del "BurpTrafficImporterExt.zip"
     <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
     <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
     <PackageReference Include="System.Threading.Channels" Version="7.0.0" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
@@ -101,9 +104,7 @@ del "BurpTrafficImporterExt.zip"
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="BurpImportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="BurpImportForm.cs" />
     <Compile Update="BurpImportForm.Designer.cs">
       <DependentUpon>BurpImportForm.cs</DependentUpon>
     </Compile>

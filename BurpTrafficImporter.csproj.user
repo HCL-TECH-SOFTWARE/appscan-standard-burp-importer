@@ -3,4 +3,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartArguments>"c:\temp\burpSample.xml"</StartArguments>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="BurpImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>
