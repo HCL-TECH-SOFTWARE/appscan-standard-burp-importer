@@ -93,6 +93,11 @@ namespace BurpTrafficImporter
         {
 
             HttpRequestInfo requestInfo = new HttpRequestInfo();
+
+            // STD-10727
+            // Adding check to determine if the request is secure or not
+            requestInfo.IsSecure = url.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
+
             TrafficResponseInfo responseInfo = new TrafficResponseInfo();
 
             ByteString requestBS = new ByteString(request.GetBuffer(), 0, (int)request.Position);
